@@ -15,7 +15,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationZero() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(0);
         Assertions.assertEquals(0, radioNew.getCurrentStations());
     }
@@ -28,7 +28,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationOne() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(1);
         Assertions.assertEquals(1, radioNew.getCurrentStations());
     }
@@ -41,7 +41,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationMinus() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(-1);
         Assertions.assertEquals(0, radioNew.getCurrentStations());
     }
@@ -54,7 +54,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationAverage() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(5);
         Assertions.assertEquals(5, radioNew.getCurrentStations());
     }
@@ -67,7 +67,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationPenult() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(13);
         Assertions.assertEquals(13, radioNew.getCurrentStations());
     }
@@ -80,7 +80,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationLast() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(14);
         Assertions.assertEquals(14, radioNew.getCurrentStations());
     }
@@ -93,8 +93,15 @@ class RadioTest {
 
     @Test /* Constructor */
     void newSelectCurrentStationBeyond() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(15);
+        Assertions.assertEquals(15, radioNew.getCurrentStations());
+    }
+
+    @Test /* Constructor */
+    void newSelectCurrentStationBeyond1() {
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
+        radioNew.setCurrentStations(16);
         Assertions.assertEquals(0, radioNew.getCurrentStations());
     }
 
@@ -108,10 +115,10 @@ class RadioTest {
 
     @Test /* Constructor */
     void NewUsingButtonNextReturnToZero() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(14);
         radioNew.nextStations();
-        Assertions.assertEquals(0, radioNew.getCurrentStations());
+        Assertions.assertEquals(15, radioNew.getCurrentStations());
     }
 
     @Test
@@ -123,7 +130,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newUsingButtonNextSwitchNext() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(1);
         radioNew.nextStations();
         Assertions.assertEquals(2, radioNew.getCurrentStations());
@@ -139,10 +146,10 @@ class RadioTest {
 
     @Test /* Constructor */
     void newUsingButtonPrevBackToLast() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(0);
         radioNew.prevStations();
-        Assertions.assertEquals(14, radioNew.getCurrentStations());
+        Assertions.assertEquals(15, radioNew.getCurrentStations());
     }
 
     @Test
@@ -154,7 +161,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newUsingButtonPrevBelowLast() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(14);
         radioNew.prevStations();
         Assertions.assertEquals(13, radioNew.getCurrentStations());
@@ -169,7 +176,7 @@ class RadioTest {
 
     @Test /* Constructor */
     void newUsingButtonSwitchToStart() {
-        Radio radioNew = new Radio(15);
+        Radio radioNew = new Radio(0,15, 0, 0, 0);
         radioNew.setCurrentStations(1);
         radioNew.prevStations();
         Assertions.assertEquals(0, radioNew.getCurrentStations());
